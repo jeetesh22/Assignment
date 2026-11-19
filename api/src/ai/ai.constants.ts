@@ -1,0 +1,13 @@
+export const AI_QUEUE = 'document-ai';
+export const PROCESS_DOCUMENT_JOB = 'process-document';
+export const GENERATE_SUMMARY_JOB = 'generate-summary';
+export const OPENAI_CHAT_MODEL = 'gpt-4o-mini';
+export const OPENAI_EMBEDDING_MODEL = 'text-embedding-3-small';
+export const OPENAI_TIMEOUT_MS = 30_000;
+export const OPENAI_MAX_RETRIES = 1;
+export const EMBEDDING_DIMENSIONS = 1536;
+export const MAX_SEMANTIC_SEARCH_RESULTS = 50;
+export const SUMMARY_CHUNK_SIZE = 12_000;
+export const SUMMARY_CHUNK_OVERLAP = 300;
+export const EMBEDDING_CHUNK_SIZE = 3_000;
+export const EMBEDDING_CHUNK_OVERLAP = 250;

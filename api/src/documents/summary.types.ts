@@ -1,0 +1,16 @@
+export enum SummaryType {
+  SHORT = 'SHORT',
+  DETAILED = 'DETAILED',
+  BULLET_POINTS = 'BULLET_POINTS',
+  EXECUTIVE = 'EXECUTIVE',
+  KEY_INSIGHTS = 'KEY_INSIGHTS',
+  KEYWORDS = 'KEYWORDS',
+}
+
+export enum SummaryGenerationStatus {
+  IDLE = 'IDLE',
+  QUEUED = 'QUEUED',
+  GENERATING = 'GENERATING',
+  COMPLETED = 'COMPLETED',
+  FAILED = 'FAILED',
+}

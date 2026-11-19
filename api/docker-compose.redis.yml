@@ -1,0 +1,29 @@
+services:
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-}
+    ports:
+      - "127.0.0.1:${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    command:
+      - sh
+      - -c
+      - |
+        if [ -n "$$REDIS_PASSWORD" ]; then
+          exec redis-server --appendonly yes --requirepass "$$REDIS_PASSWORD"
+        else
+          exec redis-server --appendonly yes
+        fi
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - 'if [ -n "$${REDIS_PASSWORD}" ]; then REDISCLI_AUTH="$${REDIS_PASSWORD}" redis-cli ping; else redis-cli ping; fi'
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  redis_data:
